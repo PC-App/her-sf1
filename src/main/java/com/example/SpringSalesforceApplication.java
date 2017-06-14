@@ -20,14 +20,8 @@ public class SpringSalesforceApplication {
 
     @RequestMapping("/accounts")
     public List<Force.Account> accounts(OAuth2Authentication principal) {
-        return force.accounts(principal);
-    }
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringSalesforceApplication.class, args);
-
-
-         // TODO Auto-generated method stub
+    	// TODO Auto-generated method stub
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
         Map map = new HashMap<String, String>();
         map.put("Content-Type", "application/json");
@@ -43,6 +37,13 @@ public class SpringSalesforceApplication {
         ResponseEntity<?> response = new RestTemplate().postForEntity(url, request, String.class);
         ServiceResponse entityResponse = (ServiceResponse) response.getBody();
         System.out.println(entityResponse.getData());
+
+        return force.accounts(principal);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringSalesforceApplication.class, args);
+
     }
 
 }
