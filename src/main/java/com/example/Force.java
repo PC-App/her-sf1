@@ -21,7 +21,10 @@ public class Force {
 
     @Bean
     private OAuth2RestTemplate oAuth2RestTemplate(OAuth2ProtectedResourceDetails resource, OAuth2ClientContext context) {
-        return new OAuth2RestTemplate(resource, context);
+        
+        //return new OAuth2RestTemplate(resource, context);
+    
+        return null;
     }
 
     @Autowired
