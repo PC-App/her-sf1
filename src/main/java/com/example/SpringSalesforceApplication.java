@@ -12,7 +12,9 @@ import java.util.List;
 
 @SpringBootApplication
 @RestController
-@EnableOAuth2Sso
+
+//@EnableOAuth2Sso
+
 public class SpringSalesforceApplication {
 
     @Autowired
@@ -24,12 +26,13 @@ public class SpringSalesforceApplication {
         return force.accounts(principal);
     }
 
-
+/*
 	@RequestMapping(path = "/post", method = RequestMethod.POST)
 	    public List<Force.Account> accounts(OAuth2Authentication principal) {
         return force.accounts(principal);
     }
-
+*/
+    
 /*
     String post(@RequestParam String text) {
 	  	restTemplate.postForObject(messageApi, Collections.singletonMap("text", text), Void.class);
