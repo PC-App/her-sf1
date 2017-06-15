@@ -16,13 +16,20 @@ import java.util.List;
 public class SpringSalesforceApplication {
 
     @Autowired
-    private Force force;
+    //private Force force;
 
     @RequestMapping("/accounts")
     public List<Force.Account> accounts(OAuth2Authentication principal) {
 
         return force.accounts(principal);
     }
+
+
+	@RequestMapping(path = "/post", method = RequestMethod.POST)
+	String post(@RequestParam String text) {
+		restTemplate.postForObject(messageApi, Collections.singletonMap("text", text), Void.class);
+		return "redirect:/";
+	}
 
     @RequestMapping("/")
     public String index() {
