@@ -21,12 +21,16 @@ public class SpringSalesforceApplication {
     @RequestMapping("/accounts")
     public List<Force.Account> accounts(OAuth2Authentication principal) {
 
-    	
-
         return force.accounts(principal);
     }
 
+    @RequestMapping("/")
+    public String index() {
+        return "Greetings from Spring Boot!";
+    }
+
     public static void main(String[] args) {
+
         SpringApplication.run(SpringSalesforceApplication.class, args);
 
     }
