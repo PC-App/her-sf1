@@ -24,12 +24,14 @@ public class SpringSalesforceApplication {
         return force.accounts(principal);
     }
 
-
+/*
 	@RequestMapping(path = "/post", method = RequestMethod.POST)
 	String post(@RequestParam String text) {
 		restTemplate.postForObject(messageApi, Collections.singletonMap("text", text), Void.class);
 		return "redirect:/";
 	}
+*/
+	
 
     @RequestMapping("/")
     public String index() {
