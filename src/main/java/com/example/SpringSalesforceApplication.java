@@ -43,10 +43,15 @@ public class SpringSalesforceApplication {
 
     @RequestMapping("/")
     public String index() {
-        return "Greetings from Spring Boot!";
+        return "SALES FORCE API!";
     }
 
+    @RequestMapping("/login", method = RequestMethod.POST)
+    public String index() {
 
+        return "POSTING... ";
+    
+    }
 
 
     public static void main(String[] args) {
