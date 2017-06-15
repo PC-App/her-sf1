@@ -46,12 +46,22 @@ public class SpringSalesforceApplication {
         return "SALES FORCE API!";
     }
 
+/*
     @RequestMapping("/login", method = RequestMethod.POST)
     public String index() {
 
         return "POSTING... ";
     
     }
+*/
+
+
+@RequestMapping(value="/method3", method={RequestMethod.POST,RequestMethod.GET})
+@ResponseBody
+public String method3(){
+	return "method3";
+}
+
 
 
     public static void main(String[] args) {
