@@ -32,7 +32,7 @@ public class SpringSalesforceApplication {
         return force.accounts(principal);
     }
 */
-    
+
 /*
     String post(@RequestParam String text) {
 	  	restTemplate.postForObject(messageApi, Collections.singletonMap("text", text), Void.class);
@@ -40,12 +40,15 @@ public class SpringSalesforceApplication {
 	}
 */
 
-
+/*
     @RequestMapping("/")
     public String index() {
         return "Greetings from Spring Boot!";
     }
+*/
 
+
+    
     public static void main(String[] args) {
 
         SpringApplication.run(SpringSalesforceApplication.class, args);
