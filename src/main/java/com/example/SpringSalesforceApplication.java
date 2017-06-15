@@ -16,7 +16,7 @@ import java.util.List;
 public class SpringSalesforceApplication {
 
     @Autowired
-    //private Force force;
+   private Force force;
 
     @RequestMapping("/accounts")
     public List<Force.Account> accounts(OAuth2Authentication principal) {
