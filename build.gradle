@@ -28,6 +28,10 @@ dependencies {
     compile 'org.springframework.security.oauth:spring-security-oauth2:2.0.12.RELEASE'
     compile 'org.webjars:salesforce-lightning-design-system:2.1.4'
     compile 'org.webjars:jquery:3.1.1'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4'
+    compile 'org.apache.httpcomponents:httpclient'
 }
 
 allprojects {

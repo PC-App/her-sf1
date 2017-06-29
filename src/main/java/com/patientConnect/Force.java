@@ -1,14 +1,19 @@
-package com.example;
+package com.patientConnect;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Component;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,10 +26,7 @@ public class Force {
 
     @Bean
     private OAuth2RestTemplate oAuth2RestTemplate(OAuth2ProtectedResourceDetails resource, OAuth2ClientContext context) {
-        
         return new OAuth2RestTemplate(resource, context);
-    
-        //return null;
     }
 
     @Autowired
@@ -42,8 +44,27 @@ public class Force {
 
         Map<String, String> params = new HashMap<>();
         params.put("q", "SELECT Id, Name, Type, Industry, Rating FROM Account");
+        //JSONArray arr_strJson=new JSONArray(restTemplate.getForObject(url, QueryResultAccount.class, params).records);
+       // JSONArray arr_strJson = new JSONArray(Arrays.asList(arr_str));
 
         return restTemplate.getForObject(url, QueryResultAccount.class, params).records;
+       //return arr_strJson.toString();
+    }
+
+    public void insertAccountabc(OAuth2Authentication principal){
+        String url = restUrl(principal) + "sobjects/Account/";
+
+        String input = "{\"name\":\"testName\"}";
+        //HttpHeaders headers = new HttpHeaders();
+        //headers.setContentType(MediaType.APPLICATION_JSON);
+        //headers.set("Authorization", "Bearer");
+        HttpEntity<String> entity = new HttpEntity<String>(input);
+
+        MultiValueMap<String, String> post = new LinkedMultiValueMap<String, String>();
+        post.add("name", "TestAcctName");
+        restTemplate.postForObject(url, post, QueryResultAccount.class,"");
+
+        //restTemplate.postForObject(url,QueryResultAccount.class);
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
